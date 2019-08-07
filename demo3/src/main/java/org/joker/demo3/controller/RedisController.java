@@ -15,7 +15,14 @@ public class RedisController {
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
 
-//    @RequestMapping("/addRedis")
-//    public
+    @RequestMapping("/addRedis")
+    public void addRedis() {
+        stringRedisTemplate.opsForValue().set("test1","joke");
+    }
+
+    @RequestMapping("/getRedis")
+    public String getRedis() {
+        return stringRedisTemplate.opsForValue().get("test1");
+    }
 }
 
